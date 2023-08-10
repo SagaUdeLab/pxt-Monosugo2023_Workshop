@@ -196,7 +196,7 @@ namespace Monosugo2023_Workshop_Backhoe {
     }
 
     /**
-      * 好きなシリンダーを一定の時間、伸ばしたり縮めたりできます。
+      * 任意のシリンダーを一定の時間、伸ばしたり縮めたりできます。
       * @param target 動かしたいシリンダー
       * @param direction 動かしたい方向
       * @param duration 動かしたい時間
@@ -257,7 +257,7 @@ namespace Monosugo2023_Workshop_Backhoe {
     }
 
     /**
-      * シリンダーを動ける状態にします。
+      * すべてのシリンダーを動ける状態にします。
     */
     //% block="シリンダーを動ける状態にする"
     //% group="特殊"
@@ -266,7 +266,7 @@ namespace Monosugo2023_Workshop_Backhoe {
     }
 
     /**
-      * シリンダーを動けない状態にします。micro:bitを起動した後は、シリンダーは動けない状態になっています。
+      * すべてのシリンダーを動けない状態にします。micro:bitを起動した後は、シリンダーは動けない状態になっています。
     */
     //% block="シリンダーを動けない状態にする"
     //% group="特殊"
