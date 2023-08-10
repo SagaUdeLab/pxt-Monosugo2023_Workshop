@@ -43,7 +43,7 @@ namespace Monosugo2023_Workshop_Backhoe {
         .....
         .....
         `);
-        bucketCylinder.initialize();
+        bucketCylinder.home();
 
 
         if (!CylinderDriver.Cylinders.isCylindersEnabled) { return };
@@ -56,7 +56,7 @@ namespace Monosugo2023_Workshop_Backhoe {
         .....
         `);
         boomCylinder.extend(false);
-        basic.pause(CylinderDriver.durationToInitializeCylinder);
+        basic.pause(CylinderDriver.durationToHomeCylinder);
         boomCylinder.stop(false);
 
         if (!CylinderDriver.Cylinders.isCylindersEnabled) { return };
@@ -68,7 +68,7 @@ namespace Monosugo2023_Workshop_Backhoe {
         #####
         #####
         `);
-        armCylinder.initialize(false);
+        armCylinder.home(false);
 
         music.stopAllSounds();
         isCylindersMoving = false;

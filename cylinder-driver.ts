@@ -1,6 +1,6 @@
 namespace CylinderDriver {
 
-    export const durationToInitializeCylinder: number = 8e3; // microseconds
+    export const durationToHomeCylinder: number = 8e3; // microseconds
 
     export const enum CylindersEnum {
         //% block="ブーム"
@@ -92,9 +92,9 @@ namespace CylinderDriver {
             }
         }
 
-        initialize(showStatus: boolean = true): void {
+        home(showStatus: boolean = true): void {
             this.shrink(showStatus);
-            basic.pause(durationToInitializeCylinder);
+            basic.pause(durationToHomeCylinder);
             this.stop(showStatus);
         }
 
