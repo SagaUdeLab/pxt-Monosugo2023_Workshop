@@ -80,7 +80,7 @@ namespace Monosugo2023_Workshop_Backhoe {
       * ブームシリンダーを一定の時間、伸ばします。
       * @param duration 動かしたい時間
     */
-    //% block="ブームシリンダーを $duration秒間伸ばす"
+    //% block="ブームシリンダーを $duration秒間のばす"
     //% group="ブーム"
     //% duration.min=0 duration.max=20 duration.defl=5
     export function extendBoomCylinder(duration: number): void {
@@ -100,7 +100,7 @@ namespace Monosugo2023_Workshop_Backhoe {
      * ブームシリンダーを一定の時間、縮めます。
      * @param duration 動かしたい時間
     */
-    //% block="ブームシリンダーを $duration秒間縮める"
+    //% block="ブームシリンダーを $duration秒間ちぢめる"
     //% group="ブーム"
     //% duration.min=0 duration.max=20 duration.defl=5
     export function shrinkBoomCylinder(duration: number): void {
@@ -120,7 +120,7 @@ namespace Monosugo2023_Workshop_Backhoe {
      * アームシリンダーを一定の時間、伸ばします。
      * @param duration 動かしたい時間
     */
-    //% block="アームシリンダーを $duration秒間伸ばす"
+    //% block="アームシリンダーを $duration秒間のばす"
     //% group="アーム"
     //% duration.min=0 duration.max=20 duration.defl=5
     export function extendArmCylinder(duration: number): void {
@@ -140,7 +140,7 @@ namespace Monosugo2023_Workshop_Backhoe {
      * アームシリンダーを一定の時間、縮めます。
      * @param duration 動かしたい時間
     */
-    //% block="アームシリンダーを $duration秒間縮める"
+    //% block="アームシリンダーを $duration秒間ちぢめる"
     //% group="アーム"
     //% duration.min=0 duration.max=20 duration.defl=5
     export function shrinkArmCylinder(duration: number): void {
@@ -160,7 +160,7 @@ namespace Monosugo2023_Workshop_Backhoe {
      * バケットシリンダーを一定の時間、伸ばします。
      * @param duration 動かしたい時間
     */
-    //% block="バケットシリンダーを $duration秒間伸ばす"
+    //% block="バケットシリンダーを $duration秒間のばす"
     //% group="バケット"
     //% duration.min=0 duration.max=20 duration.defl=5
     export function extendBucketCylinder(duration: number): void {
@@ -180,7 +180,7 @@ namespace Monosugo2023_Workshop_Backhoe {
      * バケットシリンダーを一定の時間、縮めます。
      * @param duration 動かしたい時間
     */
-    //% block="バケットシリンダーを $duration秒間縮める"
+    //% block="バケットシリンダーを $duration秒間ちぢめる"
     //% group="バケット"
     //% duration.min=0 duration.max=20 duration.defl=5
     export function shrinkBucketCylinder(duration: number): void {
@@ -248,7 +248,7 @@ namespace Monosugo2023_Workshop_Backhoe {
 
     /**
       * すべてのシリンダーを緊急停止します。
-      * 緊急停止後はシリンダーが動けない状態にされます。
+      * 緊急停止後はすべてのシリンダーが動けない状態になります。
     */
     //% block="シリンダーを緊急停止"
     //% group="特殊"
