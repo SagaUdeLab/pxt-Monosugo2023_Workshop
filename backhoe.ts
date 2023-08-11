@@ -16,7 +16,7 @@ namespace Monosugo2023_Workshop_Backhoe {
       * すべてのシリンダーを初期位置にします。初期位置にした後はシリンダーが動ける状態になっています。
     */
     //% block="すべてのシリンダーを初期位置にする"
-    export function initializeAllCylinders(): void {
+    export function homeAllCylinders(): void {
         const forElise = music.stringPlayable("E5:1 D5#:1 E5:1 D5#:1 E5:1 B4:1 D5:1 C5:1 A4:2 R:1 C4:1 E4:1 A4:1 B4:2 R:1 E4:1 G4#:1 B4:1 C5:2 R:1 E4:1 E5:1 D5#:1 E5:1 D5#:1 E5:1 B4:1 D5:1 C5:1 A4:2 R:1 C4:1 E4:1 A4:1 B4:2 R:1 E4:1 C5:1 B4:1 A4:2 R:2", 110);
 
         basic.clearScreen();
@@ -25,29 +25,27 @@ namespace Monosugo2023_Workshop_Backhoe {
         isCylindersMoving = true;
         enableCylinders();
 
-        //basic.showString("INIT");
-        basic.showLeds(`
-        #####
-        #####
-        #####
-        #####
-        #####
-        `);
         basic.clearScreen();
 
         music.play(forElise, music.PlaybackMode.LoopingInBackground);
         basic.showLeds(`
         .....
-        .....
-        ..#..
-        .....
+        .###.
+        .#.#.
+        .###.
         .....
         `);
-        bucketCylinder.home(false);
+
+        bucketCylinder.shrink(false);
+        armCylinder.shrink(false);
+        basic.pause(CylinderDriver.durationToHomeCylinder);
+        bucketCylinder.stop(false);
+        armCylinder.stop(false);
 
 
         if (!CylinderDriver.Cylinders.isCylindersEnabled) { return };
 
+        /*
         basic.showLeds(`
         .....
         .###.
@@ -60,6 +58,7 @@ namespace Monosugo2023_Workshop_Backhoe {
         boomCylinder.stop(false);
 
         if (!CylinderDriver.Cylinders.isCylindersEnabled) { return };
+        */
 
         basic.showLeds(`
         #####
@@ -68,8 +67,10 @@ namespace Monosugo2023_Workshop_Backhoe {
         #####
         #####
         `);
-        armCylinder.home(false);
-
+        boomCylinder.extend(false);
+        basic.pause(CylinderDriver.durationToHomeCylinder);
+        boomCylinder.stop();
+        
         music.stopAllSounds();
         isCylindersMoving = false;
         basic.showIcon(IconNames.Yes);
