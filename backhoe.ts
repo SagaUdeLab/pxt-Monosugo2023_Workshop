@@ -77,12 +77,12 @@ namespace Monosugo2023_Workshop_Backhoe {
     }
 
     /**
-      * ブームシリンダーを一定の時間、伸ばします。
+      * ブームを指定された時間、上げます。
       * @param duration 動かしたい時間
     */
-    //% block="ブームシリンダーを $duration秒間のばす"
+    //% block="ブームを$duration秒間あげる"
     //% group="ブーム"
-    //% duration.min=0 duration.max=20 duration.defl=5
+    //% duration.min=0 duration.max=15 duration.defl=5
     export function extendBoomCylinder(duration: number): void {
         let startTime: number = input.runningTime();
 
@@ -97,12 +97,12 @@ namespace Monosugo2023_Workshop_Backhoe {
     }
 
     /**
-     * ブームシリンダーを一定の時間、縮めます。
-     * @param duration 動かしたい時間
+      * ブームを指定された時間、下げます。
+      * @param duration 動かしたい時間
     */
-    //% block="ブームシリンダーを $duration秒間ちぢめる"
+    //% block="ブームを$duration秒間さげる"
     //% group="ブーム"
-    //% duration.min=0 duration.max=20 duration.defl=5
+    //% duration.min=0 duration.max=15 duration.defl=5
     export function shrinkBoomCylinder(duration: number): void {
         let startTime: number = input.runningTime();
 
@@ -117,33 +117,13 @@ namespace Monosugo2023_Workshop_Backhoe {
     }
 
     /**
-     * アームシリンダーを一定の時間、伸ばします。
-     * @param duration 動かしたい時間
+      * アームを指定された時間、上げます。
+      * @param duration 動かしたい時間
     */
-    //% block="アームシリンダーを $duration秒間のばす"
+    //% block="アームを$duration秒間あげる"
     //% group="アーム"
-    //% duration.min=0 duration.max=20 duration.defl=5
+    //% duration.min=0 duration.max=15 duration.defl=5
     export function extendArmCylinder(duration: number): void {
-        let startTime: number = input.runningTime();
-
-        if (!CylinderDriver.Cylinders.isCylindersEnabled || isCylindersMoving) { return; }
-        isCylindersMoving = true;
-        if (armCylinder.status != CylinderDriver.CylinderStateEnum.Stopping) { return; }
-        armCylinder.control(CylinderDriver.CylinderDirectionEnum.Extend);
-        basic.pause(duration * 1e3);
-        armCylinder.stop();
-        isCylindersMoving = false;
-        basic.pause(500);
-    }
-
-    /**
-     * アームシリンダーを一定の時間、縮めます。
-     * @param duration 動かしたい時間
-    */
-    //% block="アームシリンダーを $duration秒間ちぢめる"
-    //% group="アーム"
-    //% duration.min=0 duration.max=20 duration.defl=5
-    export function shrinkArmCylinder(duration: number): void {
         let startTime: number = input.runningTime();
 
         if (!CylinderDriver.Cylinders.isCylindersEnabled || isCylindersMoving) { return; }
@@ -157,33 +137,33 @@ namespace Monosugo2023_Workshop_Backhoe {
     }
 
     /**
-     * バケットシリンダーを一定の時間、伸ばします。
-     * @param duration 動かしたい時間
+      * アームを指定された時間、下げます。
+      * @param duration 動かしたい時間
     */
-    //% block="バケットシリンダーを $duration秒間のばす"
-    //% group="バケット"
-    //% duration.min=0 duration.max=20 duration.defl=5
-    export function extendBucketCylinder(duration: number): void {
+    //% block="アームを$duration秒間さげる"
+    //% group="アーム"
+    //% duration.min=0 duration.max=15 duration.defl=5
+    export function shrinkArmCylinder(duration: number): void {
         let startTime: number = input.runningTime();
 
         if (!CylinderDriver.Cylinders.isCylindersEnabled || isCylindersMoving) { return; }
         isCylindersMoving = true;
-        if (bucketCylinder.status != CylinderDriver.CylinderStateEnum.Stopping) { return; }
-        bucketCylinder.control(CylinderDriver.CylinderDirectionEnum.Extend);
+        if (armCylinder.status != CylinderDriver.CylinderStateEnum.Stopping) { return; }
+        armCylinder.control(CylinderDriver.CylinderDirectionEnum.Extend);
         basic.pause(duration * 1e3);
-        bucketCylinder.stop();
+        armCylinder.stop();
         isCylindersMoving = false;
         basic.pause(500);
     }
 
     /**
-     * バケットシリンダーを一定の時間、縮めます。
-     * @param duration 動かしたい時間
+      * バケットを指定された時間、上げます。
+      * @param duration 動かしたい時間
     */
-    //% block="バケットシリンダーを $duration秒間ちぢめる"
+    //% block="バケットを$duration秒間あげる"
     //% group="バケット"
-    //% duration.min=0 duration.max=20 duration.defl=5
-    export function shrinkBucketCylinder(duration: number): void {
+    //% duration.min=0 duration.max=15 duration.defl=5
+    export function extendBucketCylinder(duration: number): void {
         let startTime: number = input.runningTime();
 
         if (!CylinderDriver.Cylinders.isCylindersEnabled || isCylindersMoving) { return; }
@@ -197,14 +177,34 @@ namespace Monosugo2023_Workshop_Backhoe {
     }
 
     /**
-      * 任意のシリンダーを一定の時間、伸ばしたり縮めたりできます。
+      * バケットを指定された時間、下げます。
+      * @param duration 動かしたい時間
+    */
+    //% block="バケットを$duration秒間さげる"
+    //% group="バケット"
+    //% duration.min=0 duration.max=15 duration.defl=5
+    export function shrinkBucketCylinder(duration: number): void {
+        let startTime: number = input.runningTime();
+
+        if (!CylinderDriver.Cylinders.isCylindersEnabled || isCylindersMoving) { return; }
+        isCylindersMoving = true;
+        if (bucketCylinder.status != CylinderDriver.CylinderStateEnum.Stopping) { return; }
+        bucketCylinder.control(CylinderDriver.CylinderDirectionEnum.Extend);
+        basic.pause(duration * 1e3);
+        bucketCylinder.stop();
+        isCylindersMoving = false;
+        basic.pause(500);
+    }
+
+    /**
+      * 任意のシリンダーを指定された時間、伸ばしたり縮めたりします。
       * @param target 動かしたいシリンダー
       * @param direction 動かしたい方向
       * @param duration 動かしたい時間
     */
     //% block="$target のシリンダーを $duration秒間 $direction"
     //% group="特殊"
-    //% duration.min=0 duration.max=20 duration.defl=5
+    //% duration.min=0 duration.max=15 duration.defl=5
     export function controlCylinder(target: CylinderDriver.CylindersEnum, direction: CylinderDriver.CylinderDirectionEnum, duration: number): void {
         let startTime: number = input.runningTime();
         let targetCylinder: CylinderDriver.Cylinders;
